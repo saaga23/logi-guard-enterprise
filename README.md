@@ -1,135 +1,152 @@
+# LOGI-GUARD ENTERPRISE
 
+**Hardware-Integrated NLP Governance Layer and Cultural Firewall**
 
-```markdown
-# Logi-Guard: Enterprise NLP Governance & Cultural Firewall
-
-**Live Dashboard Deployment:** [https://logi-guard-enterprise.vercel.app/](https://logi-guard-enterprise.vercel.app/)
-**Hardware Demonstration & Pitch Video:** [https://www.youtube.com/watch?v=u8CPFAgyDtI](https://www.youtube.com/watch?v=u8CPFAgyDtI)
-**Source Repository:** [saaga23/PayloadGate](https://github.com/saaga23/PayloadGate)
+**Video Demonstration:** [https://www.youtube.com/watch?v=u8CPFAgyDtI](https://www.youtube.com/watch?v=u8CPFAgyDtI)
+**Live Enterprise Environment:** [https://logi-guard-enterprise.vercel.app/](https://logi-guard-enterprise.vercel.app/)
 
 ---
 
-## Executive Roadmap
+## EXECUTIVE SUMMARY
 
-1. The Infrastructure Problem: Cultural Hallucinations & PII Leaks
-2. The Logi-Guard Solution: Zero-Trust Hardware Governance
-3. System Architecture & Core Modules
-4. The Mathematics of Trust: Telemetry & Metrics
-5. Hardware Integration Protocol (Logitech MX)
-6. Installation & Local Deployment
-7. Enterprise Monetization Strategy
+Generative artificial intelligence applied to low-resource African languages presents a severe new danger: uncontrolled cultural hallucination and sensitive data leakage. Logi-Guard operates as a strict infrastructure and governance layer, moving beyond standard wrapper applications. It provides substantial incremental value by introducing tactile, hardware-level intervention via the Logitech MX Creative Console directly into the Natural Language Processing (NLP) pipeline.
 
----
+The system intercepts generative outputs, sanitizes payloads at the edge, and mandates human-in-the-loop verification before enterprise deployment.
 
-## 1. The Infrastructure Problem
+### ROADMAP
 
-Generative AI adoption in the Global South is currently bottlenecked by an absolute lack of trust. While high-resource languages (English) benefit from extensive safety alignment, large language models deployed for low-resource languages (Yoruba, Swahili) suffer from severe model alignment drift. 
-
-For a global enterprise, deploying an AI agent in these regions introduces two critical vulnerabilities:
-* **Data Exfiltration:** Unfiltered passing of Personally Identifiable Information (PII) into third-party LLM APIs.
-* **Cultural Hallucination:** The generation of contextually inappropriate or offensive translations (e.g., using casual slang in a binding legal contract), leading to regulatory fines and brand degradation.
-
-Standard software interfaces are insufficient for high-stakes compliance. A physical, human-in-the-loop (HITL) checkpoint is required.
+1. Problem Definition and Linguistic Variance
+2. System Architecture
+3. Core Infrastructure Components
+4. Quality Control Layer Metrics
+5. Implementation Examples
+6. Local Installation Protocol
+7. SaaS/B2B Monetization Strategy
 
 ---
 
-## 2. The Logi-Guard Solution
+## 1. PROBLEM DEFINITION AND LINGUISTIC VARIANCE
 
-Logi-Guard is an edge-based infrastructure layer that acts as a Cultural Firewall. It bridges the gap between global AI models and local deployment by turning the **Logitech MX Creative Console** into a mandatory cryptographic checkpoint for AI payload verification.
+The assumption that Large Language Models (LLMs) generalize safely across all languages is false. Model alignment drift varies significantly based on resource availability. Volunteer training data in emerging markets is inherently noisy, necessitating expert validation layers.
 
-Instead of operating as a standard text-generation wrapper, Logi-Guard intercepts generative payloads, sanitizes them, and forces a human reviewer to dictate the socio-cultural parameters via physical hardware before the data is committed to production.
+* **High-Resource (English):** Semantic alignment is stable. Standard safety filters are generally sufficient for enterprise deployment.
+* **Mid-Resource (Arabic):** Alignment requires moderate contextual steering to avoid dialectical mismatch or inappropriate formality.
+* **Low-Resource (Yoruba):** Alignment drift is severe. Direct translation often results in cultural hallucinations, offensive idioms, or catastrophic loss of context. A strict Quality Control Layer is mandated to prevent enterprise liability.
 
----
-
-## 3. System Architecture & Core Modules
-
-The Logi-Guard framework consists of three primary defense mechanisms:
-
-### A. Pre-Processing: Data Loss Prevention (DLP) Engine
-Before any string is passed to the inference engine, it must clear the DLP layer. Regular expression heuristics are utilized to identify and mask sensitive user data at the edge.
-* **Input:** `Send the contract to ceo@company.com and call 08012345678 by 5pm.`
-* **Sanitized Output:** `Send the contract to [EMAIL_REDACTED] and call [PHONE_REDACTED] by 5pm.`
-
-### B. Inference Control: Tactile Context Switching
-Human communication requires dynamic context shifting. The Logitech MX Dial is mapped to a strict 0-100 threshold scale, forcing the language model to adopt specific translation personas instantly:
-* **Corporate (0-30):** Strict, formal, legally compliant phrasing.
-* **Social (30-70):** Casual, colloquial phrasing suitable for peer-to-peer communication.
-* **Cultural (70-100):** Deep, proverb-heavy phrasing required for demonstrating respect to elders or high-status clients.
-
-### C. Post-Processing: Hardware-Verified RLHF Vault
-When a human operator verifies a translation, standard software clicks are insufficient for enterprise compliance. Pressing the MX Action Ring triggers a cryptographic SHA-256 hashing event. This logs the exact timestamp, the hardware used, and the approved text. This audit trail is retained to build a proprietary Reinforcement Learning from Human Feedback (RLHF) dataset for future model fine-tuning.
+Logi-Guard targets this exact delta, providing the necessary governance to safely scale AI in the Global South.
 
 ---
 
-## 4. The Mathematics of Trust: Telemetry & Metrics
+## 2. SYSTEM ARCHITECTURE
 
-In low-resource NLP, Accuracy is a flawed and dangerous metric due to severe class imbalances. Logi-Guard strictly rejects pure accuracy in favor of a comprehensive Quality Control Diagnostic layer. 
+The application is structured as a dual-mode system, prioritizing a "Demo or Die" visual execution while maintaining robust local hardware communication.
 
-The enterprise dashboard exposes:
-* **F1-Score:** The harmonic mean of precision and recall, serving as the ultimate "Trust Score" for the translation output.
-* **Precision:** Measuring the exactness of the cultural alignment.
-* **Recall:** Measuring the completeness of the semantic transfer.
-* **Historical Confusion Matrix:** A transparent ledger of True Positives (verified deployments) versus False Positives (quarantined hallucinations), proving the system's ongoing reliability to enterprise stakeholders.
+* **Frontend (Cloud/Vercel):** Next.js 15, TypeScript, Tailwind CSS. Manages the visual interface, metric calculation, and cryptographic logging.
+* **Relay (Local Edge Node):** Node.js WebSocket server. Listens to physical inputs from the Logitech MX Console and broadcasts them to the cloud interface with < 12ms latency.
+* **Target Hardware:** Logitech MX Creative Console (Dial and Action Ring).
 
 ---
 
-## 5. Hardware Integration Protocol (Logitech MX)
+## 3. CORE INFRASTRUCTURE COMPONENTS
 
-The application utilizes a dual-node architecture to bypass standard browser security limitations regarding local hardware ports. 
+### A. Edge Data Loss Prevention (DLP)
 
-1.  **Local Node (Hardware Bridge):** A lightweight Node.js WebSocket server runs locally, listening directly to the Logitech Options+ SDK events.
-2.  **Cloud Node (Next.js Dashboard):** The enterprise frontend subscribes to the local WebSocket port (ws://127.0.0.1:8080). 
+Before a source string is processed by the generative model, it passes through the DLP engine. Personally Identifiable Information (PII) such as email addresses and standardized phone numbers are intercepted and masked using regular expressions. This ensures proprietary enterprise data never reaches external LLM APIs.
 
-When the user rotates the physical MX Dial, the hardware interrupt is routed through the Node.js relay directly into the React state management, resulting in <12ms latency for context switching.
+### B. Hardware-Verified Context Routing
+
+The Logitech MX Dial is mapped to a dynamic "Strictness" parameter. Rotation of the dial dictates the required output persona:
+
+* **Corporate (Strict):** Enforces formal, legally compliant terminology.
+* **Social (Casual):** Permits colloquialisms and modern phrasing.
+* **Cultural (Deep):** Integrates proverbs and high-context cultural markers, requiring the highest level of human oversight.
+
+### C. The RLHF Cryptographic Vault
+
+Human-in-the-loop verification is transformed into a retained asset. When a translation is approved via a physical press of the MX Action Ring, the event is cryptographically hashed (SHA-256 simulation) and timestamped. This establishes an unalterable audit trail and constructs a proprietary dataset for Reinforcement Learning from Human Feedback (RLHF).
 
 ---
 
-## 6. Installation & Local Deployment
+## 4. QUALITY CONTROL LAYER METRICS
 
-To run the full hardware-in-the-loop simulation locally, two separate terminal instances are required.
+Accuracy is rejected as a standalone metric for low-resource NLP evaluation, as it obscures false positives in imbalanced datasets. Logi-Guard strictly mandates the display of comprehensive diagnostic metrics.
+
+* **F1-Score:** The harmonic mean of precision and recall. Acts as the primary "Trust Score" for the generative output.
+* **Precision:** Measures the exactness of the translation. High precision guarantees that provided cultural contexts are correct.
+* **Recall:** Measures completeness. High recall ensures no critical meaning from the source English is abandoned.
+* **Confusion Matrix:** A live, historical distribution of True Positives, False Positives (Hallucinations), True Negatives, and False Negatives. This visualizes the model's actual enterprise readiness.
+
+*Threshold Protocol:* If the calculated F1-Score drops below 0.80, the system automatically shifts from 'VERIFIED' to 'QUARANTINE', physically requiring the user to intervene via the MX Console.
+
+---
+
+## 5. IMPLEMENTATION EXAMPLES
+
+**Scenario: Contract Distribution**
+
+* **Source Input:** "Send the contract to ceo@company.com and call 08012345678 by 5pm."
+* **DLP Execution:** "Send the contract to [EMAIL_REDACTED] and call [PHONE_REDACTED] by 5pm."
+
+**Dial Position: Corporate (Value: 0-30)**
+
+* **Output:** "Mo nilo ki adehun yii wa ni fowosi ni agogo marun irole."
+* **Metrics:** F1: 0.980 | Precision: 0.990 | Recall: 0.970
+* **Status:** VERIFIED
+
+**Dial Position: Cultural (Value: 70-100)**
+
+* **Output:** "Ise ki n duro de eniyan; akoko ko duro de enikeni. E jowo e fowosi."
+* **Metrics:** F1: 0.650 | Precision: 0.600 | Recall: 0.700
+* **Status:** QUARANTINE (Requires Manual Override)
+
+---
+
+## 6. LOCAL INSTALLATION PROTOCOL
+
+To run the full hardware-linked version locally, both the Node.js relay and the Next.js frontend must be executed concurrently.
 
 ### Prerequisites
-* Node.js (v18+)
-* Git
-* Logitech MX Creative Console (Hardware)
 
-### Step 1: Initialize the Hardware Relay (Terminal 1)
-Navigate to the relay directory and start the local WebSocket server to listen for hardware inputs.
+* Node.js (v18 or higher)
+* Logitech Options+ Software
+* Logitech MX Creative Console
+
+### Step 1: Initialize the Hardware Relay
+
 ```bash
-cd local-relay
+git clone https://github.com/saaga23/PayloadGate.git
+cd PayloadGate/local-relay
 npm install ws
 node server.js
 
 ```
 
-Expected Output: `[SYSTEM] Hardware Relay initializing on port 8080...`
+The terminal will confirm: `[SYSTEM] Hardware Relay initializing on port 8080...`
 
-### Step 2: Initialize the Enterprise Dashboard (Terminal 2)
+### Step 2: Initialize the Enterprise Dashboard
 
-Navigate to the web application directory and launch the Next.js frontend.
+Open a new terminal window.
 
 ```bash
-cd web-dashboard
+cd PayloadGate/web-dashboard
 npm install
 npm run dev
 
 ```
 
-Navigate to `http://localhost:3000`. The navigation bar will display a pulsing indicator confirming "MX HARDWARE LINKED".
+Navigate to `http://localhost:3000`. The interface will display "MX HARDWARE LINKED" upon successful connection to the local relay.
 
 ---
 
-## 7. Enterprise Monetization Strategy
+## 7. SAAS/B2B MONETIZATION STRATEGY
 
-Logi-Guard is positioned as a B2B SaaS governance layer.
-Target customers include multinational telecommunications firms, banking institutions, and healthcare providers scaling customer support operations into African markets. Monetization is driven by API volume auditing and seat licenses for the MX-Hardware integrated dashboard, ensuring that every piece of outbound AI communication is sanitized, verified, and culturally calibrated.
+Logi-Guard is positioned strictly as B2B Enterprise Software. The monetization model targets multinational corporations, telecommunications firms, and financial institutions expanding into African markets.
+
+1. **Compliance as a Service (CaaS):** Enterprises pay a recurring licensing fee to route their customer support AI outputs through the Logi-Guard Quality Control Layer.
+2. **Hardware Lock-in:** Security protocols require physical hardware tokens for high-risk actions. Logi-Guard creates a direct pipeline for enterprise procurement of Logitech MX hardware to serve as cryptographic approval keys.
+3. **Proprietary Data Moat:** The RLHF Vault continuously aggregates validated, context-specific translations. This refined dataset can be licensed back to foundational model providers to improve low-resource linguistic accuracy.
 
 ---
 
-### Tags
-
-#Logitech #ArtificialIntelligence #NLP #Yoruba #LowResourceLanguages #DataPrivacy #MachineLearning #NextJS #HardwareIntegration #B2BSaaS #TechForGood #Cybersecurity
-
-```
-
-```
+**Tags/Keywords:**
+#Logitech #ArtificialIntelligence #NLP #Governance #DataPrivacy #LowResourceLanguages #NextJS #EnterpriseSaaS #LogiGuard #MachineLearning #HardwareIntegration
